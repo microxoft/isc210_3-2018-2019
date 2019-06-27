@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Tavern.unity
+    guid: 95baca0fd517b4a4fbf9ff609f3035c9
+  - enabled: 1
+    path: Assets/Scenes/PiraPong.unity
+    guid: 9104158b781c91c4081fa4d849b82d08
+  - enabled: 1
+    path: Assets/Scenes/PiraEssence.unity
+    guid: 2613a15a5138d124c87f70192252ad32
   m_configObjects: {}

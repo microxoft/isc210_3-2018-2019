@@ -7,9 +7,11 @@ public class MovementController : MonoBehaviour
     Vector3 maxWalkSpeed = new Vector3(2f, 2f), maxRunSpeed = new Vector3(5f, 5f), currentMovementSpeed;
     bool isAttacking, isRunning, lookingRight = true;
     Animator currentAnimator;
+    SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         currentAnimator = GetComponent<Animator>();
     }
 
@@ -31,7 +33,8 @@ public class MovementController : MonoBehaviour
         else if (currentMovementSpeed.x > 0)
             lookingRight = true;
 
-        gameObject.transform.rotation = new Quaternion(0, lookingRight ? 0 : 180, 0, 0);
+        //gameObject.transform.rotation = new Quaternion(0, lookingRight ? 0 : 180, 0, 0);
+        spriteRenderer.flipX = lookingRight ? false : true;
 
         gameObject.GetComponent<Rigidbody>().velocity = currentMovementSpeed;
     }

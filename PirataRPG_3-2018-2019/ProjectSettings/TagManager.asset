@@ -11,6 +11,8 @@ TagManager:
   - CherryEssence
   - BananaEssence
   - Enemy
+  - NPC
+  - EssenceItem
   layers:
   - Default
   - TransparentFX
@@ -50,6 +52,9 @@ TagManager:
     locked: 0
   - name: Paths
     uniqueID: 985190467
+    locked: 0
+  - name: Items
+    uniqueID: 1351194801
     locked: 0
   - name: Trees
     uniqueID: 577622215

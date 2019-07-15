@@ -49,6 +49,13 @@ public class MapManager : MonoBehaviour
     const string xmlPath = "Level1";
     GameObject newCell;
     public GameObject Player;
+    public GameObject ChestBanana;
+    public GameObject ChestCherry;
+    public GameObject ChestGrape;
+    public GameObject ChestLemon;
+    public GameObject ChestOrange;
+    public GameObject ChestSeaweed;
+
 
     private void Awake()
     {
@@ -208,11 +215,42 @@ public class MapManager : MonoBehaviour
             }
             newCell = Instantiate(newCell, new Vector3(Convert.ToSingle(currentNode.Attributes["posX"].Value), -Convert.ToSingle(currentNode.Attributes["posY"].Value)), Quaternion.identity);
             newCell.name = currentNode.Attributes["uniqueObjectName"].Value;
-            if(newCell.name == "Player")
+            newCell.tag = currentNode.Attributes["tag"].Value;
+            if(newCell.tag == "Player")
             {
                 Camera.main.transform.SetParent(newCell.transform);
                 Camera.main.transform.localPosition = new Vector3(0, 0, -10);
             }
+        }
+
+        selectedNodes = xmlDoc.SelectNodes(string.Format("//level/items/item"));
+
+        foreach (XmlNode currentNode in selectedNodes) // For every item...
+        {
+            switch (currentNode.Attributes["prefabName"].Value)
+            {
+                case "ChestBanana":
+                    newCell = ChestBanana;
+                    break;
+                case "ChestCherry":
+                    newCell = ChestCherry;
+                    break;
+                case "ChestGrape":
+                    newCell = ChestGrape;
+                    break;
+                case "ChestLemon":
+                    newCell = ChestLemon;
+                    break;
+                case "ChestOrange":
+                    newCell = ChestOrange;
+                    break;
+                case "ChestSeaweed":
+                    newCell = ChestSeaweed;
+                    break;
+            }
+            newCell = Instantiate(newCell, new Vector3(Convert.ToSingle(currentNode.Attributes["posX"].Value), -Convert.ToSingle(currentNode.Attributes["posY"].Value)), Quaternion.identity);
+            newCell.name = currentNode.Attributes["uniqueObjectName"].Value;
+            newCell.tag = currentNode.Attributes["tag"].Value;
         }
     }
 }

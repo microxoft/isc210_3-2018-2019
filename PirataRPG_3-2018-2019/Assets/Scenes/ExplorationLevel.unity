@@ -191,6 +191,18 @@ MonoBehaviour:
   l: {fileID: 3401829156687215563, guid: f16ec87572ae63544b5d5e1b005db102, type: 3}
   m: {fileID: 303999372999216572, guid: e43d14db91097c44289952147e533c1b, type: 3}
   Player: {fileID: 2676763021532377169, guid: 6772c7462d5ee6849a2ba3c301c431f6, type: 3}
+  ChestBanana: {fileID: 672521428115718021, guid: b2513bf7dae201d439b17d81e07b44af,
+    type: 3}
+  ChestCherry: {fileID: 8491116644548195095, guid: bc1c44d6b5159de4ab5c631a416af27d,
+    type: 3}
+  ChestGrape: {fileID: 1946212671098664892, guid: 1de1c6163ef024140aea70243c8158bc,
+    type: 3}
+  ChestLemon: {fileID: 442040835007026525, guid: 1cb000630d3c2a54f80439eb05d41833,
+    type: 3}
+  ChestOrange: {fileID: 2634576324155253382, guid: 3b0f0cf5e195c994789287503e0a4d7a,
+    type: 3}
+  ChestSeaweed: {fileID: 4387641378767854496, guid: 83677997d1e91b44e8af94bf8782abd7,
+    type: 3}
 --- !u!102 &382438157
 TextMesh:
   serializedVersion: 3
@@ -299,7 +311,7 @@ Camera:
   m_GameObject: {fileID: 1633021593}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2

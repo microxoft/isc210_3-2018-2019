@@ -43,7 +43,22 @@
     <row><![CDATA[AAAAAAAlAAKPJIOLQLAAAAAAmAAAAAAAAAAAAAAAAAAAAAmAAAAAAAAAAAAlAAAAAAgAAAAA]]></row>
   </map>
   <characters>
-    <character id="0" uniqueObjectName="Player" prefabName="Player" posX="32" posY="17"/>
+    <character id="0" uniqueObjectName="Player" prefabName="Player" posX="32" posY="17" tag="Player"/>
+    <character id="1" uniqueObjectName="Morah" prefabName="Player" posX="38" posY="11" tag="NPC"/>
+    <character id="2" uniqueObjectName="Lionel" prefabName="Player" posX="22" posY="11" tag="NPC"/>
+    <character id="3" uniqueObjectName="Yuyu" prefabName="Player" posX="17" posY="17" tag="NPC"/>
+    <character id="4" uniqueObjectName="Enemy1" prefabName="Player" posX="3" posY="2" tag="Enemy"/>
+    <character id="5" uniqueObjectName="Enemy2" prefabName="Player" posX="8" posY="20" tag="Enemy"/>
+    <character id="6" uniqueObjectName="Enemy3" prefabName="Player" posX="55" posY="27" tag="Enemy"/>
+    <character id="7" uniqueObjectName="Enemy4" prefabName="Player" posX="64" posY="3" tag="Enemy"/>
   </characters>
+  <items>
+    <item id="0" uniqueObjectName="Chest1" prefabName="ChestBanana" posX="1" posY="36" tag="EssenceItem"/>
+    <item id="1" uniqueObjectName="Chest2" prefabName="ChestCherry" posX="30" posY="39" tag="EssenceItem"/>
+    <item id="2" uniqueObjectName="Chest3" prefabName="ChestGrape" posX="57" posY="39" tag="EssenceItem"/>
+    <item id="3" uniqueObjectName="Chest4" prefabName="ChestLemon" posX="38" posY="30" tag="EssenceItem"/>
+    <item id="4" uniqueObjectName="Chest5" prefabName="ChestOrange" posX="15" posY="28" tag="EssenceItem"/>
+    <item id="5" uniqueObjectName="Chest6" prefabName="ChestSeaweed" posX="57" posY="7" tag="EssenceItem"/>
+  </items>
 </level>
 

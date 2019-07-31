@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Entities;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
@@ -48,6 +49,7 @@ public class MapManager : MonoBehaviour
     XmlDocument xmlDoc;
     const string xmlPath = "Level1";
     GameObject newCell;
+    GameEntity newCharacter;
     public GameObject Player;
     public GameObject ChestBanana;
     public GameObject ChestCherry;
@@ -55,7 +57,7 @@ public class MapManager : MonoBehaviour
     public GameObject ChestLemon;
     public GameObject ChestOrange;
     public GameObject ChestSeaweed;
-
+    public MissionManager missionManager;
 
     private void Awake()
     {
@@ -66,6 +68,7 @@ public class MapManager : MonoBehaviour
     private void Start()
     {
         LoadMap(0, 73, 0, 40);
+        missionManager.LoadMissions(xmlDoc);
     }
 
     void LoadMap(int xFrom, int xTo, int yFrom, int yTo)
@@ -213,12 +216,13 @@ public class MapManager : MonoBehaviour
                     newCell = Player;
                     break;
             }
-            newCell = Instantiate(newCell, new Vector3(Convert.ToSingle(currentNode.Attributes["posX"].Value), -Convert.ToSingle(currentNode.Attributes["posY"].Value)), Quaternion.identity);
-            newCell.name = currentNode.Attributes["uniqueObjectName"].Value;
-            newCell.tag = currentNode.Attributes["tag"].Value;
-            if(newCell.tag == "Player")
+            newCharacter = new GameEntity(newCell, Convert.ToInt32(currentNode.Attributes["id"].Value), currentNode.Attributes["uniqueObjectName"].Value, currentNode.Attributes["prefabName"].Value, Convert.ToSingle(currentNode.Attributes["posX"].Value), -Convert.ToSingle(currentNode.Attributes["posY"].Value), currentNode.Attributes["tag"].Value);
+
+            Game.Instance().CurrentLevel.Entities.Add(newCharacter);
+
+            if(newCharacter.Tag == "Player")
             {
-                Camera.main.transform.SetParent(newCell.transform);
+                Camera.main.transform.SetParent(newCharacter.gameObject.transform);
                 Camera.main.transform.localPosition = new Vector3(0, 0, -10);
             }
         }
@@ -248,9 +252,10 @@ public class MapManager : MonoBehaviour
                     newCell = ChestSeaweed;
                     break;
             }
-            newCell = Instantiate(newCell, new Vector3(Convert.ToSingle(currentNode.Attributes["posX"].Value), -Convert.ToSingle(currentNode.Attributes["posY"].Value)), Quaternion.identity);
-            newCell.name = currentNode.Attributes["uniqueObjectName"].Value;
-            newCell.tag = currentNode.Attributes["tag"].Value;
+
+            newCharacter = new GameEntity(newCell, Convert.ToInt32(currentNode.Attributes["id"].Value), currentNode.Attributes["uniqueObjectName"].Value, currentNode.Attributes["prefabName"].Value, Convert.ToSingle(currentNode.Attributes["posX"].Value), -Convert.ToSingle(currentNode.Attributes["posY"].Value), currentNode.Attributes["tag"].Value);
+
+            Game.Instance().CurrentLevel.Entities.Add(newCharacter);
         }
     }
 }

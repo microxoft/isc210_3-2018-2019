@@ -59,6 +59,66 @@
     <item id="3" uniqueObjectName="Chest4" prefabName="ChestLemon" posX="38" posY="30" tag="EssenceItem"/>
     <item id="4" uniqueObjectName="Chest5" prefabName="ChestOrange" posX="15" posY="28" tag="EssenceItem"/>
     <item id="5" uniqueObjectName="Chest6" prefabName="ChestSeaweed" posX="57" posY="7" tag="EssenceItem"/>
+    <!--<item id="6" uniqueObjectName="CaveEntrance" prefabName="CaveEntrance" posX="" posY="" tag=""/>-->
   </items>
+  <missions>
+    <mission id="1" description="Entrar a la cueva donde está guardado el café." prerequisites="">
+      <tasks>
+        <task id="1A" description="Hablar con Morah." prerequisites="">
+          <conditions>
+            <condition type="CloseTo" uniqueObjectNameFrom="Player" uniqueObjectNameTo="Morah" quantity="0"/>
+            <condition type="KeyPressed" uniqueObjectNameFrom="Submit" uniqueObjectNameTo="" quantity="0"/>
+          </conditions>
+          <actions>
+            <action type="ShowMessage" uniqueObjectNameFrom="Búscame mi café. Está en la cueva." uniqueObjectNameTo="" quantity="0"/>
+          </actions>
+        </task>
+        <task id="1B" description="Ir a la cueva." prerequisites="1A">
+          <conditions>
+            <condition type="CloseTo" uniqueObjectNameFrom="Player" uniqueObjectNameTo="CaveEntrance" quantity="0"/>
+          </conditions>
+          <actions>
+            <action type="ShowMessage" uniqueObjectNameFrom="...regresaré donde Morah, porque está cerrada." uniqueObjectNameTo="" quantity="0"/>
+          </actions>
+        </task>
+        <task id="1C" description="Volver a hablar con Morah." prerequisites="1B">
+          <conditions>
+            <condition type="CloseTo" uniqueObjectNameFrom="Player" uniqueObjectNameTo="Morah" quantity="0"/>
+            <condition type="KeyPressed" uniqueObjectNameFrom="Submit" uniqueObjectNameTo="" quantity="0"/>
+          </conditions>
+          <actions>
+            <action type="ShowMessage" uniqueObjectNameFrom="Se me olvidó decirte que perdí la llave. Habla con Lionel." uniqueObjectNameTo="" quantity="0"/>
+          </actions>
+        </task>
+        <task id="1D" description="Hablar con Lionel." prerequisites="1C">
+          <conditions>
+            <condition type="CloseTo" uniqueObjectNameFrom="Player" uniqueObjectNameTo="Lionel" quantity="0"/>
+            <condition type="KeyPressed" uniqueObjectNameFrom="Submit" uniqueObjectNameTo="" quantity="0"/>
+          </conditions>
+          <actions>
+            <action type="ShowMessage" uniqueObjectNameFrom="Vinieron unos bandidos y se la llevaron." uniqueObjectNameTo="" quantity="0"/>
+          </actions>
+        </task>
+        <task id="1E" description="Matar un bandido." prerequisites="1D">
+          <conditions>
+            <condition type="Destroyed" uniqueObjectNameFrom="Player" uniqueObjectNameTo="Enemy1" quantity="0"/>
+          </conditions>
+          <actions>
+            <action type="InventoryAdd" uniqueObjectNameFrom="Key1" uniqueObjectNameTo="" quantity="1"/>
+            <action type="ShowMessage" uniqueObjectNameFrom="Has conseguido la llave." uniqueObjectNameTo="" quantity="0"/>
+          </actions>
+        </task>
+        <task id="1F" description="Volver a la cueva." prerequisites="1E">
+          <conditions>
+            <condition type="CloseTo" uniqueObjectNameFrom="Player" uniqueObjectNameTo="CaveEntrance" quantity="0"/>
+            <condition type="Inventoried" uniqueObjectNameFrom="Key1" uniqueObjectNameTo="" quantity="1"/>
+          </conditions>
+          <actions>
+            <action type="LoadScene" uniqueObjectNameFrom="Platformer" uniqueObjectNameTo="" quantity="0"/>
+          </actions>
+        </task>
+      </tasks>
+    </mission>
+  </missions>
 </level>
 
